@@ -6,7 +6,7 @@ function loadData() {
     // remove resultset if this has already been run
     $('#gameoutput ul').remove();
     // add spinner to indicate something is happening
-    // $('<i class="fa fa-refresh fa-spin"/>').appendTo('body');
+     $('<i class="fa fa-refresh fa-spin"/>').appendTo('body');
 
     // get selected zip code from selectbox
     var game = $('#gamename').val().replace(/ /g, '+'); //remove those blasted spaces and add a damn plus signs
@@ -23,7 +23,7 @@ function loadData() {
 console.log(data);
             $.each(data, function (key, val) {
                 //iterate through the returned data and build a list
-                items.push('<a href="'+ val.url + '" target="_blank"><li id="' + key + '"><span>' + val.name + '</span></li></a>');
+                items.push('<img src="https://res.cloudinary.com/igdb/image/upload/t_cover_small/'+ val.cover.cloudinary_id +'.jpg"> </<br><a href="'+ val.url + '" target="_blank"><li id="' + key + '"><span>' + val.name + '</span></li></a>');
             });
             // if no items were returned then add a message to that effect
             if (items.length < 1) {
@@ -31,7 +31,7 @@ console.log(data);
             }
 
             // remove spinner
-            //$('.fa-spin').remove();
+            $('.fa-spin').remove();
 
             // append list to page
             $ul = $('<ul />').appendTo('#gameoutput');
