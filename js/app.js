@@ -9,7 +9,7 @@ function loadData() {
     var game = $('#gamename').val().replace(/ /g, '+'); //remove those blasted spaces and add a damn plus signs
     ;
     var output = $.ajax({
-        url: 'https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=*&limit=10&offset=0&order=release_dates.date:asc&search=' + game, // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+        url: 'https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=*&limit=20&offset=0&order=release_dates.date:asc&search=' + game, // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
         type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
         data: {}, // Additional parameters here
         dataType: 'json',
@@ -32,7 +32,7 @@ function loadData() {
                 };
 
                 //iterate through the returned data and build a list
-                items.push('<a href="' + val.url + '" target="_blank"><div class="column" id="' + key + '"><img src="https://res.cloudinary.com/igdb/image/upload/t_logo_med/' + picCheck() + '.jpg"><span>' + val.name + '</span></li></a>');
+                items.push('<a href="' + val.url + '" target="_blank"><div class="" id="' + key + '"><img src="https://res.cloudinary.com/igdb/image/upload/t_logo_med/' + picCheck() + '.jpg"><span>' + val.name + '</span></li></a>');
             });
             // if no items were returned then add a message to that effect
             if (items.length < 1) {
