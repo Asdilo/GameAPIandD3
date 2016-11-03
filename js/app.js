@@ -5,7 +5,7 @@ function loadData() {
     // add spinner to indicate something is happening
     $('<i class="fa fa-refresh fa-spin"/>').appendTo('body');
 
-    // get selected zip code from selectbox
+    // get search term from input
     var game = $('#gamename').val().replace(/ /g, '+'); //remove those blasted spaces and add a damn plus signs
     ;
     var output = $.ajax({
