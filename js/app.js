@@ -9,20 +9,20 @@ function loadData() {
     var game = $('#gamename').val().replace(/ /g, '+'); //remove those blasted spaces and add a damn plus signs
     ;
     var output = $.ajax({
-        url: 'https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=*&limit=20&offset=0&order=release_dates.date:asc&search=' + game, // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+        url: 'https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=*&limit=40&offset=0&order=release_dates.date:asc&search=' + game, // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
         type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
         data: {}, // Additional parameters here
         dataType: 'json',
         success: function (data) {
             // do all this on success       
-            var items = [],
-                $div;
-            console.log(data);
-            $.each(data, function (key, val) {
+            var items = []; //make an empty array
 
-                function picCheck() { //check if there's a fuggin picId if nah give it the generic image id
+            console.log(data); //just need to check the data in the console so I can see what objects are returned
+
+            $.each(data, function (key, val) {
+                function picCheck() { //check if there's a picId if nah give it the generic image id
                     var picId;
-                    if ( typeof val.cover === 'undefined') {
+                    if (typeof val.cover === 'undefined') {
                         picId = 'nocover_qhhlj6'
                     }
                     else {
@@ -47,7 +47,6 @@ function loadData() {
 
             //append list items to list
             $div.append(items);
-
         },
         error: function (err) { alert(err); },
         beforeSend: function (xhr) {
