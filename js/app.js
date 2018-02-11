@@ -9,7 +9,7 @@ function loadData() {
     var game = $('#gamename').val().replace(/ /g, '+'); //remove those blasted spaces and add a damn plus signs
     ;
     var output = $.ajax({
-        url: 'https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=*&limit=40&offset=0&order=release_dates.date:asc&search=' + game, // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+        url: 'https://api-2445582011268.apicast.io/games/?fields=*&limit=40&offset=0&order=release_dates.date:asc&search=' + game, // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
         type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
         data: {}, // Additional parameters here
         dataType: 'json',
@@ -50,7 +50,7 @@ function loadData() {
         },
         error: function (err) { alert(err); },
         beforeSend: function (xhr) {
-            xhr.setRequestHeader("X-Mashape-Authorization", "OAxCGrSv1Vmsh13AiC1Wpm2Xyqq8p1OVO0zjsnVDyArc4dhrZf"); // Enter here your Mashape key
+            xhr.setRequestHeader("user-key", "a4f2207c6b692358532b448a5632cbe6"); // Enter here your Mashape key
         }
     });
 
