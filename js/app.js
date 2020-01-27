@@ -11,6 +11,9 @@ function loadData() {
     var output = $.ajax({
         url: 'https://api-2445582011268.apicast.io/games/?fields=*&limit=40&offset=0&order=release_dates.date:asc&search=' + game, // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
         type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
+        contentType: 'text/plain',
+        crossDomain: true,
+        xhrFields: {withCredentials: false},
         data: {}, // Additional parameters here
         dataType: 'json',
         success: function (data) {
