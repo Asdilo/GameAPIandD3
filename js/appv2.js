@@ -11,7 +11,7 @@ function gameSearch() {
 
 
     var settings = {
-        "url": "https://api.rawg.io/api/games?page_size=10&search=" + game,
+        "url": "https://api.rawg.io/api/games?page_size=30&ordering=named&search=" + game,
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -29,11 +29,11 @@ function gameSearch() {
         $('.fa-spin').remove();
 
         // append list to page
-        $div = $('<div class="row row-wrap gameoutput"  />').appendTo('#gameoutput');
+        $div = $('<div class="grid gameoutput"  />').appendTo('#gameoutput');
 
         $.each(response, function (key, val) {
             //iterate through the returned data and build a list
-            items.push('<div class="" id="' + val.id  + '"><img src="' + val.background_image + '"><span>' + val.name + '</span></li></div>');
+            items.push('<div class="card" id="' + val.id  + '"><img src="' + val.background_image + '"><p>' + val.name + '</p></div>');
         });
         // if no items were returned then add a message to that effect
         if (items.length < 1) {
