@@ -33,11 +33,11 @@ function gameSearch() {
 
         $.each(response, function (key, val) {
             //iterate through the returned data and build a list
-            items.push('<div class="card" id="' + val.id  + '"><img src="' + val.background_image + '"><p>' + val.name + '</p></div>');
+            items.push('<div class="card" id="' + val.id  + '"><img src="' + val.background_image + '"><p>' + val.name + ' - ' + val.released + '</p></div>');
         });
         // if no items were returned then add a message to that effect
         if (items.length < 1) {
-            items.push('<li>No results for this Game, try again!</li>');
+            items.push('<div class="card">No results for this Game, try another game title.</div>');
         }
         //append list items to list
         $div.append(items);
