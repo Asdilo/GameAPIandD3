@@ -7,29 +7,30 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="https://github.com/Asdilo">
 	<meta name="description" content="">
-	<meta property="og:description" content="A web API search that uses jquery and igdb">
+	<meta property="og:description" content="A web API search that uses jquery and RAWG/IGDB">
 	<title>Game Search</title>
 	<!-- Google Fonts -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-	<!-- CSS Reset -->
-	<link rel="stylesheet" href="bower_components/normalize.css/normalize.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
 	<link rel="stylesheet" href="style/app.css">
 </head>
 
 <body>
-	<div class="container" id="gameoutput">
-		<div class="row row-wrap">
-	<input class="column-70" type="text" placeholder="Enter a game title" id="gamename" />
-	<button class="column-30" type="button" onclick="loadData()" > Search <i class="fa fa-search" aria-hidden="true"></i> </button>
+	<div class="container">
+		<h1>Game Search Using RAWG Video Games Database API</h1>
+		<div class="grid">
+			<input type="text" placeholder="Enter a game title" id="gamename" />
+			<button class="button" type="button" onclick="gameSearch()"> Search <i class="fa fa-search"
+					aria-hidden="true"></i> </button>
+		</div>
+		<div id="gameoutput" class="grid">
+
 		</div>
 
 	</div>
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script src="js/app.js"></script>
+	<script src="js/appv2.js"></script>
 </body>
 
 </html>
